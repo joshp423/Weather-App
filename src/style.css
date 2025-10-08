@@ -4,5 +4,19 @@ body {
 
 #container {
     display: grid;
-    grid-template-rows: 1fr 5fr;
+    grid-template-rows: 1fr 3fr 6fr;
+}
+
+h1 {
+    color: #EF8354;
+}
+
+#header {
+    border-bottom: 2px solid #BFC0C0;
+    background-color: #4F5D75;
+}
+
+#formContainer {
+    background-color: #2D3142;
+    border-bottom: 2px solid #BFC0C0;
 }
