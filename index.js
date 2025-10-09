@@ -9,19 +9,44 @@ function addEventFormButton() {
         event.preventDefault();
         console.log(searchLocation.value, searchDate, "metric")
         const weatherResult = await fetchWeather(searchLocation.value, searchDate, "metric")
-        renderWeatherResult(weatherResult);
+        console.log(weatherResult)
+        renderWeatherResult(weatherResult[0]);
         
     })
 }
 
-function renderWeatherResult(weatherResult) {
+ async function renderWeatherResult(weatherResult) {
     const weatherSection = document.getElementById('weathersection');
 
-    Object.entries(weatherResult).forEach((section) => {
-        let searchConditions = document.createElement('p');
-        searchConditions.innerText = section
-        weatherSection.append(searchConditions);
-    })
+    const conditionsTemp = document.createElement('h3');
+    conditionsTemp.innerText = await `${weatherResult.conditions} - ${weatherResult.temp}°C`;
+    
+
+    const feelsLike = document.createElement('p');
+    feelsLike.innerText = await `Feels Like: ${weatherResult.feelsLike}°C`;
+
+    const precipitation = document.createElement('p');
+    precipitation.innerText = await `Precipitation: ${weatherResult.precipitation}ml`;
+    
+    const precipitationChance = document.createElement('p');
+    precipitationChance.innerText = await `Precipitation Chance: ${weatherResult.precipitationChance}%`;
+
+    const precipType = document.createElement('p');
+    precipType.innerText = await `Precipitation Type: ${weatherResult.precipType}`;
+
+    const humidity = document.createElement('p');
+    humidity.innerText = await `Humidity: ${weatherResult.humidity}%`;
+
+    const windSpeed = document.createElement('p');
+    windSpeed.innerText = await `Wind Speed: ${weatherResult.windSpeed}km/h`;
+
+    const windDirection = document.createElement('p');
+    windDirection.innerText = await `Wind Direction: ${weatherResult.windDirection}°`;
+
+    const uvIndex = document.createElement('p');
+    uvIndex.innerText = await `UV Index: ${weatherResult.uvIndex}`;
+
+    weatherSection.append(conditionsTemp, feelsLike, precipitation, precipitationChance, precipType, humidity, windSpeed, windDirection, uvIndex);
 }
 
 async function fetchWeather(searchLocation, date, tempFormat) {
@@ -41,7 +66,7 @@ async function fetchWeather(searchLocation, date, tempFormat) {
         const uvIndex = weatherData.currentConditions.uvindex;
         const windSpeed = weatherData.currentConditions.windspeed;
         const windDirection = weatherData.currentConditions.winddir;
-        return [temp, feelsLike, humidity, precipitation, precipitationChance, precipType, conditions, uvIndex, windSpeed, windDirection];
+        return [{"temp":temp, "feelsLike":feelsLike, "humidity":humidity, "precipitation":precipitation, "precipitationChance":precipitationChance, "precipType":precipType, "conditions":conditions, "uvIndex":uvIndex, "windSpeed":windSpeed, "windDirection":windDirection}];
     } catch (error) {
         console.error("Fetch error:", error);
     }
