@@ -9,6 +9,9 @@ body {
 
 h1 {
     color: #EF8354;
+    justify-self: center;
+    margin: 0;
+    align-self: center;
 }
 
 #header {
@@ -17,6 +20,26 @@ h1 {
 }
 
 #formContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #2D3142;
     border-bottom: 2px solid #BFC0C0;
+}
+#formContainer>form {
+    display: flex;
+    gap: 15px;
+
+}
+#formContainer>form>button {
+    border-radius: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+#location {
+    border: 3px solid #BFC0C0;
+    border-radius: 20px;
+    padding: 5%;
+    text-align: center;
 }
