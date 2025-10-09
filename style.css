@@ -6,13 +6,13 @@ body {
 #container {
     display: grid;
     grid-template-rows: 1fr 2fr 6fr;
+    height: 60vh;
 }
 
 h1 {
     color: #EF8354;
     margin: 0;
-    font-size: 14px;
-
+    font-size: 18px;
 }
 
 #header {
@@ -59,6 +59,7 @@ h1 {
     justify-content: center;
     align-items: center;
     border-bottom: 2px solid #BFC0C0;
+    padding-bottom: 20px;
 }
 
 #weather {
