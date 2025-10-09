@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    font-family:  Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;;
 }
 
 #container {
@@ -9,14 +10,17 @@ body {
 
 h1 {
     color: #EF8354;
-    justify-self: center;
     margin: 0;
-    align-self: center;
+    font-size: 14px;
+
 }
 
 #header {
     border-bottom: 2px solid #BFC0C0;
     background-color: #4F5D75;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #formContainer {
@@ -25,6 +29,7 @@ h1 {
     justify-content: center;
     background-color: #2D3142;
     border-bottom: 2px solid #BFC0C0;
+    padding: 2%;
 }
 #formContainer>form {
     display: flex;
@@ -42,4 +47,25 @@ h1 {
     border-radius: 20px;
     padding: 5%;
     text-align: center;
+}
+
+#location:focus {
+    border: #EF8354;;
+}
+
+#weathersection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#weather {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 20px;
 }
